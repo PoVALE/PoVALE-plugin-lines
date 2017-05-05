@@ -6,6 +6,7 @@
 package es.ucm.povaleLines.functions;
 
 import es.ucm.povale.annotation.CallableMethod;
+import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.entity.ListEntity;
 import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.function.Function;
@@ -23,25 +24,31 @@ import java.util.stream.Collectors;
  */
 public class Lines extends Function {
 
+    private ListEntity result;
     @Override
     public String getName() {
         return "lines";
     }
     
     @CallableMethod
-    public ListEntity getLines(File f) {
+    public ListEntity getLines(@ParamDescription("Contiene las lineas")File f) {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(f.getContents()));
             List<StringEntity> results = 
                     br.lines()
                             .map(str -> new StringEntity(str))
                             .collect(Collectors.toList());
-            ListEntity result = new ListEntity(results);
+            result = new ListEntity(results);
             br.close();
             return result;
         } catch (IOException e) {
             return new ListEntity(new LinkedList<>());
         }
+    }
+
+    @Override
+    public String getMessage() {
+        return result.toString();
     }
     
 }

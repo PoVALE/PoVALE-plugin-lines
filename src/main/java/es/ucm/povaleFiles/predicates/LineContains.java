@@ -6,6 +6,7 @@
 package es.ucm.povaleFiles.predicates;
 
 import es.ucm.povale.annotation.CallableMethod;
+import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.predicate.Predicate;
 
@@ -20,7 +21,13 @@ public class LineContains extends Predicate {
     }
     
     @CallableMethod
-    public boolean lineStartsWith(StringEntity str, StringEntity substring) {
+    public boolean lineStartsWith(@ParamDescription("contiene")
+            StringEntity str, StringEntity substring) {
         return str.toString().contains(substring.toString());
     }    
+
+    @Override
+    public String getMessage() {
+        return "Contiene la cadena";
+    }
 }

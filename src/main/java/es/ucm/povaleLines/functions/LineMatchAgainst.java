@@ -6,6 +6,7 @@
 package es.ucm.povaleLines.functions;
 
 import es.ucm.povale.annotation.CallableMethod;
+import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.function.Function;
 import es.ucm.povaleFiles.entities.MatchResult;
@@ -20,14 +21,15 @@ import java.util.regex.PatternSyntaxException;
  * @author manuel
  */
 public class LineMatchAgainst extends Function {
-
+    
+    private MatchResult mr;
     @Override
     public String getName() {
         return "line-match-against";
     }
     
     @CallableMethod
-    public MatchResult matchAgainst(StringEntity line, StringEntity regex, StringEntity flags) {
+    public MatchResult matchAgainst(@ParamDescription("")StringEntity line, StringEntity regex, StringEntity flags) {
         int regexpFlags = 0;
         if (flags.toString().contains("i")) {
             regexpFlags |= Pattern.CASE_INSENSITIVE;
@@ -47,11 +49,21 @@ public class LineMatchAgainst extends Function {
                     groups.add(m.group(i));
                 }
             }
-            
-            return new MatchResult(m.matches(), groups);
+            mr = new MatchResult(m.matches(), groups);
+            return mr;
             
         } catch (PatternSyntaxException pe) {
-            return new MatchResult(false, new LinkedList<>());
+             new MatchResult(false, new LinkedList<>());
+            return mr;
         }
+    }
+
+    @Override
+    public String getMessage() {
+        String message ="";
+        for(String s: mr.getGroups()){
+            message += s+" ";
+        }
+        return message;
     }
 }

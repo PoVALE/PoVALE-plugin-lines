@@ -6,6 +6,7 @@
 package es.ucm.povaleLines.functions;
 
 import es.ucm.povale.annotation.CallableMethod;
+import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.function.Function;
 
@@ -14,15 +15,21 @@ import es.ucm.povale.function.Function;
  * @author manuel
  */
 public class LineTrim extends Function {
-
+    private String stringResult;
     @Override
     public String getName() {
         return "line-trim";
     }
     
     @CallableMethod
-    public StringEntity trim(StringEntity s) {
-        return new StringEntity(s.toString().trim());
+    public StringEntity trim(@ParamDescription("")StringEntity s) {
+        stringResult = s.toString().trim();
+        return new StringEntity(stringResult);
+    }
+
+    @Override
+    public String getMessage() {
+        return stringResult;
     }
     
 }

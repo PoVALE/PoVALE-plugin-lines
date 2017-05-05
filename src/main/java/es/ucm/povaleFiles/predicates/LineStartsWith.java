@@ -6,6 +6,7 @@
 package es.ucm.povaleFiles.predicates;
 
 import es.ucm.povale.annotation.CallableMethod;
+import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.predicate.Predicate;
 
@@ -21,8 +22,13 @@ public class LineStartsWith extends Predicate {
     }
     
     @CallableMethod
-    public boolean lineStartsWith(StringEntity str, StringEntity prefix) {
+    public boolean lineStartsWith(@ParamDescription("Comienza con")StringEntity str, StringEntity prefix) {
         return str.toString().startsWith(prefix.toString());
+    }
+
+    @Override
+    public String getMessage() {
+        return "Comienza con la cadena";
     }
     
 }

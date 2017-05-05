@@ -6,8 +6,12 @@
 package es.ucm.povaleFiles.entities;
 
 import es.ucm.povale.entity.Entity;
+import java.io.IOException;
 import java.util.List;
 import java.util.regex.Matcher;
+import java.util.zip.ZipOutputStream;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -28,6 +32,16 @@ public class MatchResult implements Entity {
 
     public boolean matches() {
         return matches;
+    }
+
+    @Override
+    public void toXML(Element contents, Document doc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void writeToZip(ZipOutputStream z, String outputFile) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

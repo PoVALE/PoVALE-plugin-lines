@@ -23,6 +23,7 @@
  */
 package es.ucm.povaleFiles.entities;
 
+import es.ucm.povale.entity.Entity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.DirectoryStream;
@@ -31,6 +32,9 @@ import java.nio.file.Path;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.zip.ZipOutputStream;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  *
@@ -103,6 +107,21 @@ public class FSDirectory extends FSFile implements Directory {
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    @Override
+    public Class<? extends Entity> getType() {
+        return super.getType(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void toXML(Element contents, Document doc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void writeToZip(ZipOutputStream z, String outputFile) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     

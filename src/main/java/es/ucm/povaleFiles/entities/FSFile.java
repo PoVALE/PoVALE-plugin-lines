@@ -28,6 +28,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
+import java.util.zip.ZipOutputStream;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 /**
  * Instances of this class represent physical files in the current file system.
@@ -75,6 +78,16 @@ public class FSFile implements File  {
     @Override
     public InputStream getContents() throws IOException {
         return new FileInputStream(path.toFile());
+    }
+
+    @Override
+    public void toXML(Element contents, Document doc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void writeToZip(ZipOutputStream z, String outputFile) throws IOException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 

@@ -6,6 +6,7 @@
 package es.ucm.povaleFiles.predicates;
 
 import es.ucm.povale.annotation.CallableMethod;
+import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.predicate.Predicate;
 import es.ucm.povaleFiles.entities.MatchResult;
 
@@ -21,8 +22,13 @@ public class MatcherMatches extends Predicate {
     }
     
     @CallableMethod
-    public boolean matches(MatchResult mr) {
+    public boolean matches(@ParamDescription ("Encuentra coincidencias")MatchResult mr) {
         return mr.matches();
+    }
+
+    @Override
+    public String getMessage() {
+       return "Encuentra coincidencias con el resultado";
     }
     
 }
