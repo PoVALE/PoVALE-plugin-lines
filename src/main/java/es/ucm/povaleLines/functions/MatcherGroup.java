@@ -10,7 +10,7 @@ import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.entity.IntegerEntity;
 import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.function.Function;
-import es.ucm.povaleFiles.entities.MatchResult;
+import es.ucm.povaleLines.entities.MatchResult;
 
 /**
  *

@@ -3,32 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.ucm.povaleFiles.predicates;
+package es.ucm.povaleLines.predicates;
 
 import es.ucm.povale.annotation.CallableMethod;
 import es.ucm.povale.annotation.ParamDescription;
-import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.predicate.Predicate;
+import es.ucm.povaleLines.entities.MatchResult;
 
 /**
  *
  * @author manuel
  */
-public class LineStartsWith extends Predicate {
+public class MatcherMatches extends Predicate {
 
     @Override
     public String getName() {
-        return "line-starts-with";
+        return "matches";
     }
     
     @CallableMethod
-    public boolean lineStartsWith(@ParamDescription("Comienza con")StringEntity str, StringEntity prefix) {
-        return str.toString().startsWith(prefix.toString());
+    public boolean matches(@ParamDescription ("Encuentra coincidencias")MatchResult mr) {
+        return mr.matches();
     }
 
     @Override
     public String getMessage() {
-        return "Comienza con la cadena";
+       return "Encuentra coincidencias con el resultado";
     }
     
 }

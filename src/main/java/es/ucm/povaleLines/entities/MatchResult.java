@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.ucm.povaleFiles.entities;
+package es.ucm.povaleLines.entities;
 
 import es.ucm.povale.entity.Entity;
 import java.io.IOException;

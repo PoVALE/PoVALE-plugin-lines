@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.ucm.povaleFiles.predicates;
+package es.ucm.povaleLines.predicates;
 
 import es.ucm.povale.annotation.CallableMethod;
 import es.ucm.povale.annotation.ParamDescription;
@@ -14,20 +14,21 @@ import es.ucm.povale.predicate.Predicate;
  *
  * @author manuel
  */
-public class LineEndsWith extends Predicate {
+public class LineStartsWith extends Predicate {
+
     @Override
     public String getName() {
-        return "line-ends-with";
+        return "line-starts-with";
     }
     
     @CallableMethod
-    public boolean lineStartsWith(@ParamDescription("Acaba con")StringEntity str, StringEntity suffix) {
-        return str.toString().endsWith(suffix.toString());
+    public boolean lineStartsWith(@ParamDescription("Comienza con")StringEntity str, StringEntity prefix) {
+        return str.toString().startsWith(prefix.toString());
     }
 
     @Override
     public String getMessage() {
-        return "Termina con la cadena";
+        return "Comienza con la cadena";
     }
     
 }

@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package es.ucm.povaleFiles.entities;
+package es.ucm.povaleLines.entities;
 
 import java.util.List;
 

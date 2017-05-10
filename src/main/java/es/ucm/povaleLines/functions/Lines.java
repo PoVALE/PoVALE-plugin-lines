@@ -10,7 +10,7 @@ import es.ucm.povale.annotation.ParamDescription;
 import es.ucm.povale.entity.ListEntity;
 import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.function.Function;
-import es.ucm.povaleFiles.entities.File;
+import es.ucm.povaleLines.entities.File;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -3,32 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package es.ucm.povaleFiles.predicates;
+package es.ucm.povaleLines.predicates;
 
 import es.ucm.povale.annotation.CallableMethod;
 import es.ucm.povale.annotation.ParamDescription;
+import es.ucm.povale.entity.StringEntity;
 import es.ucm.povale.predicate.Predicate;
-import es.ucm.povaleFiles.entities.MatchResult;
 
 /**
  *
  * @author manuel
  */
-public class MatcherMatches extends Predicate {
-
+public class LineContains extends Predicate {
     @Override
     public String getName() {
-        return "matches";
+        return "line-contains";
     }
     
     @CallableMethod
-    public boolean matches(@ParamDescription ("Encuentra coincidencias")MatchResult mr) {
-        return mr.matches();
-    }
+    public boolean lineStartsWith(@ParamDescription("contiene")
+            StringEntity str, StringEntity substring) {
+        return str.toString().contains(substring.toString());
+    }    
 
     @Override
     public String getMessage() {
-       return "Encuentra coincidencias con el resultado";
+        return "Contiene la cadena";
     }
-    
 }

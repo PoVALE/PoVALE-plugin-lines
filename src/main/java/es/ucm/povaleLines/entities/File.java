@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package es.ucm.povaleFiles.entities;
+package es.ucm.povaleLines.entities;
 
 import es.ucm.povale.entity.Entity;
 import java.io.IOException;
